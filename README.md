@@ -10,3 +10,5 @@ Use cases with Looker API:
 - Template to update Look [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/update_look.rb)
 
 - Kill all running queries in the instance [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/kill_all_running_queries.rb)
+
+- Logout all users on the instance [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/logout_all_users.rb)
