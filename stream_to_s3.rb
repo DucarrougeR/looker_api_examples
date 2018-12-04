@@ -8,10 +8,10 @@ sdk = LookerSDK::Client.new(
       :api_endpoint => "https://COMPANY.looker.com:19999/api/3.0"
 )
 
-#define all the variables for Looker and S3
+#define all the variables for Looker and S3 credentials
 $query_id_for_look = 14964 # update the query id for the query of the Look to use
-$access_key_id = "REPLACE_WITH_YOUR_KEY_ID"
-$secret_access_key = "REPLACE_WITH_YOUR_SECRET_ACCESS"
+$access_key_id = "REPLACE_WITH_YOUR_IAM_KEY_ID"
+$secret_access_key = "REPLACE_WITH_YOUR_IAM_SECRET_ACCESS"
 $unique_name = SecureRandom.hex
 
 schedule_hash = {
