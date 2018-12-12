@@ -1,5 +1,8 @@
 require 'looker-sdk'
 
+# This function requires prior settings on the Looker instance for the Action Hub and Google Cloud Storage
+# https://docs.looker.com/admin-options/platform/actions#how_to_enable_an_action
+
 def send_csv_to_gcs
     sdk = LookerSDK::Client.new(
       :client_id => ENV['API_CLIENT_ID'],
