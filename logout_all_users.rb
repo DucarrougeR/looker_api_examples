@@ -1,4 +1,4 @@
-equire 'looker-sdk'
+require 'looker-sdk'
 
 # get API creds from environment variables
 LOOKER_ID = ENV['LOOKER_ID']
