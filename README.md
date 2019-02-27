@@ -23,7 +23,11 @@ Use cases with Looker API:
 
 - Disable users in the instance [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/disable_users.rb)
 
-- Validates the Looker Projects [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/validate_projects.rb)
+- Validates the Looker **Projects** (LookML) [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/validate_projects.rb)
+
+- Validates the Looker **Content** [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/validate_content.rb)
 
 - Get a list of all the Git branches in the projects [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/all_git_branches.rb)
+
+- Get a list of all users and their auth credentials [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/users_list_and_auth_types.rb)
 
