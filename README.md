@@ -22,3 +22,8 @@ Use cases with Looker API:
 - Stream results to S3 bucket [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/stream_to_s3.rb)
 
 - Disable users in the instance [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/disable_users.rb)
+
+- Validates the Looker Projects [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/validate_projects.rb)
+
+- Get a list of all the Git branches in the projects [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/all_git_branches.rb)
+
