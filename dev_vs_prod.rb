@@ -1,14 +1,10 @@
 require 'looker-sdk'
 
 # get API creds from environment variables
-LOOKER_ID = ENV['LOOKER_ID']
-LOOKER_SECRET = ENV['LOOKER_SECRET']
-LOOKER_PATH = 'https://COMPANY.looker.com:19999/api/3.0'
-
 looker = LookerSDK::Client.new(
-  :client_id => LOOKER_ID,
-  :client_secret => LOOKER_SECRET,
-  :api_endpoint => LOOKER_PATH
+  :client_id => ENV['LOOKER_ID'],
+  :client_secret => ENV['LOOKER_SECRET'],
+  :api_endpoint => ENV['LOOKER_PATH']
 )
 
 # Get the user input to test the Look (could be changed to read a file, or a list of looks to test)
