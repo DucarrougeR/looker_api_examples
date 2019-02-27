@@ -10,8 +10,8 @@ sdk = LookerSDK::Client.new(
 
 # get info for all users for these fields
 details_for_users = sdk.all_users(:fields => 'id, first_name, last_name, credentials_email, credentials_totp, 
-											credentials_ldap, credentials_google, credentials_saml, credentials_oidc, 
-											credentials_api3, crendentials_embed, credentials_looker_openid, sessions')
+					credentials_ldap, credentials_google, credentials_saml, credentials_oidc, 
+					credentials_api3, crendentials_embed, credentials_looker_openid, sessions')
 
 # go through the users to get out output
 details_for_users.each { |user| 	
