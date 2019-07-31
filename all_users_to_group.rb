@@ -8,17 +8,17 @@ sdk = LookerSDK::Client.new(
 )
 
 all_groups = looker.all_groups(:fields => 'id, name')
-all_groups.each { |item|
+all_groups.each { |group|
   #change this value below to match exactly the group name you want
-	if item[:name] == "Custom Fields Beta Users"
-		puts "Group \"#{item[:name]}\" has ID #{item[:id]}"
-		$group_id = item[:id]
+	if group[:name] == "Custom Fields Beta Users"
+		puts "Group \"#{group[:name]}\" has ID #{group[:id]}"
+		$group_id = group[:id]
 	end
 }
 
 all_users = looker.all_users(:fields => 'id, email')
-all_users.each { |item|
-	body = {"user_id": item[:id]}
+all_users.each { |user|
+	body = {"user_id": user[:id]}
 	looker.add_group_user($group_id, body)
-	# puts "User: #{item[:email].to_s.capitalize} with ID #{item[:id]} was added to the Group"
+	# puts "User: #{user[:email].to_s.capitalize} with ID #{user[:id]} was added to the Group"
 }
