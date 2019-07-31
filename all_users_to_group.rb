@@ -19,6 +19,6 @@ all_groups.each { |item|
 all_users = looker.all_users(:fields => 'id, email')
 all_users.each { |item|
 	body = {"user_id": item[:id]}
-	looker.add_group_user(5, body)
+	looker.add_group_user($group_id, body)
 	# puts "User: #{item[:email].to_s.capitalize} with ID #{item[:id]} was added to the Group"
 }
