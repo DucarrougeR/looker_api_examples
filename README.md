@@ -26,6 +26,7 @@ ___________
 - Re-run the failed schedules to email [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/rerun_failed_email_schedules.rb)
 - Download all dashboard tiles as standalone CSV files [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/download_dashboard.rb#L12-L33)
 -  Download all dashboard tiles as tabs in one Excel file [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/download_dashboard.rb#L36-L65)
+- Test the integrations [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/test_integrations.rb)
 
 ___________
 ### CONTENT 📊
@@ -38,5 +39,6 @@ ___________
 ### OTHER 🌐
 
 - Kill all running queries in the instance [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/kill_all_running_queries.rb)
+- Test database connections [[link]](https://github.com/DucarrougeR/looker_ruby_examples/blob/master/test_all_connections.rb)
 
 
