@@ -23,7 +23,7 @@ content_validated[:content_with_errors].each { |content|
 		else
 			puts "Content from Look with ID: #{content[:look][:id]}"
 			look_with_errors += 1
-		end	
+		end
 		puts "Error Message:\t #{error[:message].inspect}"
 		puts "in Model:\t #{error[:model_name].inspect}"
 		error_messages.push(error[:message].inspect)

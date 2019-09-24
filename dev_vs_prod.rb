@@ -1,7 +1,7 @@
 require 'looker-sdk'
 
 # get API creds from environment variables
-looker = LookerSDK::Client.new(
+sdk = LookerSDK::Client.new(
   :client_id => ENV['LOOKER_ID'],
   :client_secret => ENV['LOOKER_SECRET'],
   :api_endpoint => ENV['LOOKER_PATH']
@@ -13,10 +13,10 @@ look_to_get = gets.chomp
 
 
 # get look, and its attributes
-my_look = looker.look(look_to_get)
+my_look = sdk.look(look_to_get)
 look_title = my_look["title"].to_s
 look_id = my_look["id"].to_s
-current_session = looker.session["workspace_id"]
+current_session = sdk.session["workspace_id"]
 
 puts "Testing the Look '#{look_title}', with ID '#{look_id}' for #{current_session} branch."
 
@@ -24,17 +24,17 @@ puts "Testing the Look '#{look_title}', with ID '#{look_id}' for #{current_sessi
 # https://docs.looker.com/reference/api-and-integration/api-reference/look#run_look
 # rebuild_pdts: true ?
 
-prod_branch_results = looker.run_look(look_to_get, 'csv', force_production: true)
-prod_branch_query = looker.run_look(look_to_get, 'sql', force_production: true)
+prod_branch_results = sdk.run_look(look_to_get, 'csv', force_production: true)
+prod_branch_query = sdk.run_look(look_to_get, 'sql', force_production: true)
 
 # Changing to Dev branch to run the look there
 puts "Changing to dev mode."
-looker.update_session("workspace_id": "dev")
-current_session =  looker.session["workspace_id"]
+sdk.update_session("workspace_id": "dev")
+current_session =  sdk.session["workspace_id"]
 
 puts "Testing the Look '#{look_title}', with ID '#{look_id}' for #{current_session} branch."
-dev_branch_results = looker.run_look(look_to_get, 'csv', force_production: false)
-dev_branch_query = looker.run_look(look_to_get, 'sql', force_production: false)
+dev_branch_results = sdk.run_look(look_to_get, 'csv', force_production: false)
+dev_branch_query = sdk.run_look(look_to_get, 'sql', force_production: false)
 
 
 if prod_branch_results == dev_branch_results

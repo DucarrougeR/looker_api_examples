@@ -7,11 +7,11 @@ sdk = LookerSDK::Client.new(
   :api_endpoint => ENV['LOOKER_PATH']
 )
 
-all_integrations = looker.all_integrations(:fields => 'id, label, enabled')
+all_integrations = sdk.all_integrations(:fields => 'id, label, enabled')
 
 all_integrations.each { | integration |
   begin
-  testing = looker.test_integration(integration[:id])
+  testing = sdk.test_integration(integration[:id])
     puts testing[:success] ?  "Test OK\t\t#{integration[:label]}" :  "Not Enabled\t#{integration[:label]}"
   rescue
     not_enabled = "Error with test for integration #{integration[:label]}"

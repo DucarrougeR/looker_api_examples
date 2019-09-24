@@ -1,20 +1,17 @@
 require 'looker-sdk'
 
-LOOKER_ID = ENV['LOOKER_ID'],
-LOOKER_SECRET = ENV['LOOKER_SECRET']
-LOOKER_PATH = 'https://COMPANY.looker.com:19999/api/3.0'
-
-looker = LookerSDK::Client.new(
-  :client_id => LOOKER_ID,
-  :client_secret => LOOKER_SECRET,
-  :api_endpoint => LOOKER_PATH
+# get API creds from environment variables
+sdk = LookerSDK::Client.new(
+  :client_id => ENV['LOOKER_ID'],
+  :client_secret => ENV['LOOKER_SECRET'],
+  :api_endpoint => ENV['LOOKER_PATH']
 )
 
 # get look, here look id 32
-my_look = looker.look(32)
+my_look = sdk.look(32)
 
 # get query id for look
-my_query = looker.query(my_look.query_id).to_attrs
+my_query = sdk.query(my_look.query_id).to_attrs
 
 # set new filters, here update the value for order_id
 my_query[:filters] =  {:"order_items.order_id" => "<567"}
@@ -23,11 +20,11 @@ my_query[:filters] =  {:"order_items.order_id" => "<567"}
 my_query[:client_id] = {}
 
 # create a new query
-my_new_query = looker.create_query(my_query)
+my_new_query = sdk.create_query(my_query)
 puts "New Query ID: " + my_new_query[:id].to_s
 
 # update look with new query
-my_look = looker.update_look(32, :query_id => my_new_query[:id])
+my_look = sdk.update_look(32, :query_id => my_new_query[:id])
 puts "Updated Look Query ID: " + my_look[:query_id].to_s
 
 

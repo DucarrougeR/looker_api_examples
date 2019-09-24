@@ -18,7 +18,7 @@ all_projects.each { |project|
 	puts "\n"
 	puts "Validating project #{project[:id]} :"
 
-	# run the validator on the project to get the errors and time taken 
+	# run the validator on the project to get the errors and time taken
 	all_validation_output = sdk.validate_project(project[:id], :fields => 'errors,computation_time')
 		all_validation_output[:errors].each { |error|
 				puts error.inspect

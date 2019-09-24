@@ -19,13 +19,13 @@ def one_csv_per_tile(dashboard_to_export, looker)
 	end
 
 		dash_info[:dashboard_elements].each { | dashboardelem |
-		
-			unless dashboardelem[:resultmaker].nil? && dashboardelem[:type] != "vis" 
-				
+
+			unless dashboardelem[:resultmaker].nil? && dashboardelem[:type] != "vis"
+
 				query_id =  dashboardelem[:result_maker][:query_id]
 				$cleaned_tile_title = dashboardelem[:title].gsub(/[^0-9a-z ]/i, '').gsub(/[ ]/i, '_')
 				results = looker.run_query(query_id, "csv")
-				
+
 				puts "Processing results for tile: #{$cleaned_tile_title}..."
 				File.open("#{$cleaned_tile_title}.csv", 'w') { |file| file.write(results) }
 			end
@@ -42,13 +42,13 @@ def one_excel_for_dash(dashboard_to_export, looker)
 		puts "⚠️\tDashboard ID Not Found"
 	end
 	$cleaned_dash_title = dash_info[:title].gsub(/[^0-9a-z ]/i, '').gsub(/[ ]/i, '_')
-	
+
 	Xlsxtream::Workbook.open("#{$cleaned_dash_title}.xlsx") do | xlsx |
-		
+
 		dash_info[:dashboard_elements].each { | dashboardelem |
-		
-			unless dashboardelem[:resultmaker].nil? && dashboardelem[:type] != "vis" 
-				
+
+			unless dashboardelem[:resultmaker].nil? && dashboardelem[:type] != "vis"
+
 				query_id =  dashboardelem[:result_maker][:query_id]
 				$cleaned_tile_title = dashboardelem[:title].gsub(/[^0-9a-z ]/i, '').gsub(/[ ]/i, '_')
 				results = looker.run_query(query_id, "csv")
@@ -56,7 +56,7 @@ def one_excel_for_dash(dashboard_to_export, looker)
 				puts "Processing results for tile: #{$cleaned_tile_title}..."
 				xlsx.write_worksheet "#{$cleaned_tile_title}" do | sheet |
 					results.each_line do | line |
-						sheet << line.split(',')						
+						sheet << line.split(',')
 					end
 				end
 			end
@@ -68,5 +68,5 @@ end
 dashboard_to_export = 23
 
 # uncomment the function you need
-# one_csv_per_tile(dashboard_to_export, looker)
-# one_excel_for_dash(dashboard_to_export, looker)
+# one_csv_per_tile(dashboard_to_export, sdk)
+# one_excel_for_dash(dashboard_to_export, sdk)

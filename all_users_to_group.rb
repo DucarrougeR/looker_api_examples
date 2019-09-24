@@ -7,7 +7,7 @@ sdk = LookerSDK::Client.new(
   :api_endpoint => ENV['LOOKER_PATH']
 )
 
-all_groups = looker.all_groups(:fields => 'id, name')
+all_groups = sdk.all_groups(:fields => 'id, name')
 all_groups.each { |group|
   #change this value below to match exactly the group name you want
 	if group[:name] == "Custom Fields Beta Users"

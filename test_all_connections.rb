@@ -30,4 +30,4 @@ def test_all_connections(looker)
   return test_results
 end
 
-puts test_all_connections(looker)
+puts test_all_connections(sdk)

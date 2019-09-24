@@ -15,9 +15,9 @@ sdk = LookerSDK::Client.new(
 failed_schedules = sdk.run_look(120, "json")
 
 
-failed_schedules.each { |schedule| 
-  puts "*"*60	
-  puts "The schedule #{schedule["scheduled_plan.id"]} failed:" 
+failed_schedules.each { |schedule|
+  puts "*"*60
+  puts "The schedule #{schedule["scheduled_plan.id"]} failed:"
   puts "\tDate:\t #{schedule["scheduled_job.created_date"]}"
   puts "\tError:\t #{schedule["scheduled_job.status_detail"]}"
   puts "\tRecipients: #{schedule["scheduled_plan.destination_addresses"]}"
@@ -29,7 +29,7 @@ failed_schedules.each { |schedule|
 
   print "\nRe-scheduling the content now to the same email"
   rerun_date = " - reran from API on ".concat(Date.today.to_s)
- 
+
   new_schedule = old_schedule
   new_schedule[:title] = new_schedule[:title].concat(rerun_date)
   new_schedule[:name] = new_schedule[:name].concat(rerun_date)
@@ -40,4 +40,3 @@ failed_schedules.each { |schedule|
   run_it = sdk.scheduled_plan_run_once(new_schedule.to_h.to_json)
   puts "\t✅ - Sent"
 }
-
