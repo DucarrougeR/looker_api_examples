@@ -5,8 +5,8 @@ require 'looker-sdk'
 
 def send_csv_to_gcs
     sdk = LookerSDK::Client.new(
-      :client_id => ENV['API_CLIENT_ID'],
-      :client_secret => ENV['API_SECRET'],
+      :client_id => ENV['LOOKER_ID'],
+      :client_secret => ENV['LOOKER_SECRET'],
       :api_endpoint => ENV['LOOKER_PATH']
     )
 
